@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 #{title}: #{bk_instance.book} 
+
+  p #[strong The following books instance will be deleted.]
+
+    div(style='margin-left:20px;margin-top:20px')
+
+      h4 #{bk_instance.title}
+
+      dl
+      each book in bk_instnace
+        dt
+          a(href=book.url) #{book.title}
