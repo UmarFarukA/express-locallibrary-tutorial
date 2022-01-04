@@ -1,9 +1,13 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const createError = require('http-errors');
 const express = require('express');
 //Set up mongoose connection
 const mongoose = require('mongoose');
 const dev_db_url = process.env.LOCAL_DB;
+console.log(dev_db_url);
 const mongoDB = process.env.MONGODB_URI || dev_db_url;
+console.log(mongoDB);
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
